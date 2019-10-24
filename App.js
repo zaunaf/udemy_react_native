@@ -11,7 +11,7 @@ export default function App() {
             style={{width: '85%', borderBottomColor: 'black', borderBottomWidth: 1, marginBottom:10}}/>
         <Button title="Add" />        
       </View>
-      <View style={{flexDirection:"row", width: "80%", height:300}}>
+      <View style={{flexDirection:"row", width: "80%", height:300, justifyContent:'space-between'}}>
         <View style={{backgroundColor: 'red', justifyContent: 'center', alignItems: 'center'}}>
             <Text>1</Text>
         </View>
