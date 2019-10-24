@@ -11,14 +11,14 @@ export default function App() {
             style={{width: '85%', borderBottomColor: 'black', borderBottomWidth: 1, marginBottom:10}}/>
         <Button title="Add" />        
       </View>
-      <View>
-        <View style={{backgroundColor: 'red', weight: 100, height: 100, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{flexDirection:'row-reverse'}}>
+        <View style={{backgroundColor: 'red', width: 100, height: 100, justifyContent: 'center', alignItems: 'center'}}>
             <Text>1</Text>
         </View>
-        <View style={{backgroundColor: 'green', weight: 100, height: 100, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{backgroundColor: 'green', width: 100, height: 100, justifyContent: 'center', alignItems: 'center'}}>
             <Text>2</Text>
         </View>
-        <View style={{backgroundColor: 'blue', weight: 100, height: 100, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{backgroundColor: 'blue', width: 100, height: 100, justifyContent: 'center', alignItems: 'center'}}>
             <Text>3</Text>
         </View>
       </View>
