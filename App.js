@@ -2,14 +2,23 @@ import React, { useState } from 'react';
 import { StyleSheet, TextInput, Text, View, Button } from 'react-native';
 
 export default function App() {
-  const [outputText, setOutputText] = useState("Open up App.js to start working on your app!");
+  const [enteredGoal, setEnteredGoal] = useState("");
+  const goalInputHandler = (enteredText) => {
+      setEnteredGoal(enteredText);
+  }
+  const addGoalHandler = () => {
+    console.log(enteredGoal);
+  }
   return (
     <View style={styles.screen}>
       <View style={styles.inputContainer}>
         <TextInput 
             placeholder="Course goal" 
-            style={styles.input}/>
-        <Button title="Add" />        
+            style={styles.input}
+            onChangeText={goalInputHandler}
+            value={enteredGoal}
+        />
+        <Button title="Add" onPress={addGoalHandler}/>
       </View>
     </View>
   );
