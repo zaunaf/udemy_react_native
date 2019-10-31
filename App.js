@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, Text, View, FlatList, Button } from 'react-native';
+import { StyleSheet, View, FlatList, Button } from 'react-native';
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
 
@@ -7,6 +7,9 @@ export default function App() {
 
   // State of courseGoals list
   const [courseGoals, setCourseGoals] = useState([]);
+
+  // Modal state
+  const [isAddMode, setIsAddMode] = useState(false);
 
   // Menangkap aksi Add dan menambahkan isi TextInput ke list courseGoals
   const addGoalHandler = goalTitle => {
@@ -26,7 +29,8 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <GoalInput onAddGoal={addGoalHandler} />
+      <Button title="Add new goal" onPress={()=>setIsAddMode(true)} />
+      <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} />
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={courseGoals}
@@ -35,7 +39,7 @@ export default function App() {
             id={itemData.item.id}
             onDelete={removeGoalHandler}  
             value={itemData.item.value} />
-        )}/>
+        )}/>        
     </View>
   );
 }

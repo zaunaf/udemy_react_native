@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, Text, View, Button } from 'react-native';
+import { StyleSheet, TextInput, Text, View, Button, Modal } from 'react-native';
 
 const GoalInput = props => {
     
@@ -8,27 +8,30 @@ const GoalInput = props => {
 
     // Menangkap setiap perubahan pada TextInput, menempelkannya pada state
     const goalInputHandler = (enteredText) => {
-        setEnteredGoal(enteredText);
+        setEnteredGoal(enteredText); 
     }
 
     return (
-        <View style={styles.inputContainer}>
-            <TextInput 
-                placeholder="Course goal" 
-                style={styles.input}
-                onChangeText={goalInputHandler}
-                value={enteredGoal} 
-            />
-            {/* <Button title="Add" onPress={() => props.onAddGoal(enteredGoal)}/> */}
-            <Button title="Add" onPress={props.onAddGoal.bind(this, enteredGoal)}/>
-        </View>
+        <Modal visible={props.visible} animationType="slide">
+            <View style={styles.inputContainer}>
+                <TextInput
+                    placeholder="Course goal" 
+                    style={styles.input}
+                    onChangeText={goalInputHandler}
+                    value={enteredGoal} 
+                />
+                {/* <Button title="Add" onPress={() => props.onAddGoal(enteredGoal)}/> */}
+                <Button title="Add" onPress={props.onAddGoal.bind(this, enteredGoal)}/>
+            </View>
+        </Modal>
     );
 }
 
 const styles = StyleSheet.create({
     inputContainer: {
-      flexDirection: 'row', 
-      justifyContent:'space-between'
+      flex:1,      
+      justifyContent:'center',
+      alignItems: 'center'
     },
     input: {
       width: '85%',
